@@ -8,7 +8,7 @@ class Player(models.Model):
     gems = models.IntegerField(default=0)
     level = models.IntegerField(default=1)
     damage = models.IntegerField(default=50)
-    fiends = models.ManyToManyField('Player', blank=True)
+    friends = models.ManyToManyField('Player', blank=True)
 
     def take_all_gifts(self):
         my_gifts = Gift.objects.get(player = self)
