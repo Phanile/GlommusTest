@@ -1,2 +1,3 @@
 *.pyc
 /backend/core/migrations/*
+\backend\project\__pycache__
