@@ -11,7 +11,7 @@ class Player(models.Model):
     friends = models.ManyToManyField('Player', blank=True)
 
     def take_all_gifts(self):
-        my_gifts = Gift.objects.get(player = self)
+        my_gifts = Gift.objects.filter(player = self)
         all_money = (sum([gift.money for gift in my_gifts]))
         self.money += all_money
         self.save()

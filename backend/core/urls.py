@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.urls import path
-from . import views
+from .views import PlayerViewSet
+from rest_framework.routers import SimpleRouter, DefaultRouter
 
-urlpatterns = [
-    path('players/', views.get_all_players, name='get_all_players'),
-]
+router = DefaultRouter()
+router.register("players", PlayerViewSet)
+
+urlpatterns = router.urls

@@ -2,10 +2,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Player
 from .serializer import PlayerSerializer
+from rest_framework.viewsets import ModelViewSet
 
-def get_all_players(request):
-    res = []
-    players = Player.objects.all()
-    for player in players:
-        res.append(PlayerSerializer(player).data)
-    return JsonResponse(res, safe = False)
+
+class PlayerViewSet(ModelViewSet):
+    serializer_class = PlayerSerializer
+    queryset = Player.objects.all()
